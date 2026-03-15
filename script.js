@@ -11,7 +11,7 @@ const t = {
     'about.p3': 'Perfect for festivals, corporate parties, club nights, or any occasion that deserves an upgrade from a Spotify playlist.',
     'about.party': 'Party',
     'band.tag': 'Meet the crew', 'band.title': 'The Band',
-    'band.misses': 'The Misses', 'band.bandits': 'The Bandits',
+    'band.misses': 'The Miss Chiefs', 'band.bandits': 'The Bandits',
     'role.vocals': 'Vocals', 'role.guitar': 'Guitar', 'role.bass': 'Bass',
     'role.keys': 'Keyboards', 'role.drums': 'Drums & Vocals',
     'bio.nikki': 'The voice that lights up the room before she even sings a note. Nikki brings heart, sass, and unstoppable stage presence to every show.',
@@ -75,7 +75,7 @@ const t = {
     'about.p3': 'Perfect voor festivals, bedrijfsfeesten, clubavonden of elk evenement dat een upgrade van een Spotify-playlist verdient.',
     'about.party': 'Feest',
     'band.tag': 'Maak kennis', 'band.title': 'De Band',
-    'band.misses': 'The Misses', 'band.bandits': 'The Bandits',
+    'band.misses': 'The Miss Chiefs', 'band.bandits': 'The Bandits',
     'role.vocals': 'Zang', 'role.guitar': 'Gitaar', 'role.bass': 'Bas',
     'role.keys': 'Toetsen', 'role.drums': 'Drums & Zang',
     'bio.nikki': 'De stem die de zaal al verlicht voordat ze een noot zingt. Nikki brengt hart, pit en een onweerstaanbare podiumaanwezigheid naar elke show.',
@@ -214,18 +214,21 @@ const revealEls = document.querySelectorAll(
 
 revealEls.forEach(el => el.classList.add('reveal'));
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const siblings = [...entry.target.parentElement.children];
-      const idx = siblings.indexOf(entry.target);
-      setTimeout(() => entry.target.classList.add('visible'), idx * 80);
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-
-revealEls.forEach(el => observer.observe(el));
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const siblings = [...entry.target.parentElement.children];
+        const idx = siblings.indexOf(entry.target);
+        setTimeout(() => entry.target.classList.add('visible'), idx * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('visible'));
+}
 
 
 // ─── YouTube lazy embed ─────────────────────────────────────────────
