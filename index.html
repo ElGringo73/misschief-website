@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miss Chief and the Bandits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating music notes background -->
+  <div class="notes-bg" aria-hidden="true" id="notesBg"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">Miss Chief <span class="amp">&amp;</span> the Bandits</div>
+    <ul class="nav-links">
+      <li><a href="#about"  data-i18n="nav.about">About</a></li>
+      <li><a href="#band"   data-i18n="nav.band">The Band</a></li>
+      <li><a href="#media"   data-i18n="nav.media">Media</a></li>
+      <li><a href="#setlist" data-i18n="nav.setlist">Setlist</a></li>
+      <li><a href="#shows"   data-i18n="nav.shows">Shows</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">NL</button>
+      <button class="burger" id="burger" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+
+    <!-- background layers -->
+    <div class="hero-bg-orb hero-bg-orb--teal"  aria-hidden="true"></div>
+    <div class="hero-bg-orb hero-bg-orb--blue"  aria-hidden="true"></div>
+    <div class="hero-bg-orb hero-bg-orb--teal2" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+<div class="hero-logo-wrap">
+        <img src="logo.png" alt="Miss Chief and the Bandits" class="hero-logo" id="heroLogo" />
+        <h1 class="hero-title" id="heroTitle" style="display:none">
+          Miss Chief<br />
+          <span class="hero-subtitle">&amp; the Bandits</span>
+        </h1>
+        <!-- sparkles orbiting the logo — inner ring -->
+        <span class="logo-spark ls1">&#10024;</span>
+        <span class="logo-spark ls2">&#9733;</span>
+        <span class="logo-spark ls3">&#10024;</span>
+        <span class="logo-spark ls4">&#9733;</span>
+        <span class="logo-spark ls5">&#10024;</span>
+        <span class="logo-spark ls6">&#9733;</span>
+        <!-- outer ring -->
+        <span class="logo-spark ls7">&#10022;</span>
+        <span class="logo-spark ls8">&#9728;</span>
+        <span class="logo-spark ls9">&#10022;</span>
+        <span class="logo-spark ls10">&#9728;</span>
+        <span class="logo-spark ls11">&#10022;</span>
+        <span class="logo-spark ls12">&#9728;</span>
+        <span class="logo-spark ls13">&#10022;</span>
+        <span class="logo-spark ls14">&#9728;</span>
+      </div>
+
+      <p class="hero-tagline" data-i18n="hero.tagline">We steal your favourite songs &mdash; and your heart.</p>
+      <div class="hero-cta">
+        <a href="#shows"   class="btn btn-primary" data-i18n="hero.cta.live">See Us Live</a>
+        <a href="#contact" class="btn btn-outline"  data-i18n="hero.cta.book">Book Us</a>
+      </div>
+    </div>
+
+    <!-- floating neon stars -->
+    <div class="hero-deco" aria-hidden="true">
+
+      <!-- 4-point cross sparkle -->
+      <span class="bubble b1 c-teal"><svg viewBox="-12 -12 24 24" width="54" height="54"><path d="M0,-11 L2,-2 L11,0 L2,2 L0,11 L-2,2 L-11,0 L-2,-2 Z" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linejoin="round"/></svg></span>
+
+      <!-- 8-point outline star -->
+      <span class="bubble b2 c-blue"><svg viewBox="-20 -20 40 40" width="40" height="40"><polygon points="0,-18 2.9,-6.9 12.7,-12.7 6.9,-2.9 18,0 6.9,2.9 12.7,12.7 2.9,6.9 0,18 -2.9,6.9 -12.7,12.7 -6.9,2.9 -18,0 -6.9,-2.9 -12.7,-12.7 -2.9,-6.9" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
+
+      <!-- 6-point outline star -->
+      <span class="bubble b3 c-teal"><svg viewBox="-18 -18 36 36" width="36" height="36"><polygon points="0,-17 3.5,-6 14.7,-8.5 7,0 14.7,8.5 3.5,6 0,17 -3.5,6 -14.7,8.5 -7,0 -14.7,-8.5 -3.5,-6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+
+      <!-- small 4-point sparkle -->
+      <span class="bubble b4 c-blue"><svg viewBox="-12 -12 24 24" width="28" height="28"><path d="M0,-11 L2,-2 L11,0 L2,2 L0,11 L-2,2 L-11,0 L-2,-2 Z" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg></span>
+
+      <!-- large 8-point star -->
+      <span class="bubble b5 c-blue"><svg viewBox="-20 -20 40 40" width="62" height="62"><polygon points="0,-18 2.9,-6.9 12.7,-12.7 6.9,-2.9 18,0 6.9,2.9 12.7,12.7 2.9,6.9 0,18 -2.9,6.9 -12.7,12.7 -6.9,2.9 -18,0 -6.9,-2.9 -12.7,-12.7 -2.9,-6.9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+
+      <!-- tall elongated sparkle (Lebowski blue-wand style) -->
+      <span class="bubble b6 c-teal"><svg viewBox="-9 -26 18 52" width="26" height="56"><path d="M0,-24 L1,-1 L8,0 L1,1 L0,24 L-1,1 L-8,0 L-1,-1 Z" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linejoin="round"/><circle cx="0" cy="-12" r="1.2" fill="currentColor"/><circle cx="0" cy="12" r="1.2" fill="currentColor"/></svg></span>
+
+      <!-- small 8-point star -->
+      <span class="bubble b7 c-blue"><svg viewBox="-20 -20 40 40" width="26" height="26"><polygon points="0,-18 2.9,-6.9 12.7,-12.7 6.9,-2.9 18,0 6.9,2.9 12.7,12.7 2.9,6.9 0,18 -2.9,6.9 -12.7,12.7 -6.9,2.9 -18,0 -6.9,-2.9 -12.7,-12.7 -2.9,-6.9" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
+
+      <!-- large 6-point star -->
+      <span class="bubble b8 c-teal"><svg viewBox="-18 -18 36 36" width="50" height="50"><polygon points="0,-17 3.5,-6 14.7,-8.5 7,0 14.7,8.5 3.5,6 0,17 -3.5,6 -14.7,8.5 -7,0 -14.7,-8.5 -3.5,-6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+
+      <!-- small 4-point sparkle -->
+      <span class="bubble b9 c-teal"><svg viewBox="-12 -12 24 24" width="28" height="28"><path d="M0,-11 L2,-2 L11,0 L2,2 L0,11 L-2,2 L-11,0 L-2,-2 Z" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg></span>
+
+      <!-- medium 8-point star -->
+      <span class="bubble b10 c-blue"><svg viewBox="-20 -20 40 40" width="38" height="38"><polygon points="0,-18 2.9,-6.9 12.7,-12.7 6.9,-2.9 18,0 6.9,2.9 12.7,12.7 2.9,6.9 0,18 -2.9,6.9 -12.7,12.7 -6.9,2.9 -18,0 -6.9,-2.9 -12.7,-12.7 -2.9,-6.9" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
+
+      <!-- tiny 6-point star -->
+      <span class="bubble b11 c-teal"><svg viewBox="-18 -18 36 36" width="24" height="24"><polygon points="0,-17 3.5,-6 14.7,-8.5 7,0 14.7,8.5 3.5,6 0,17 -3.5,6 -14.7,8.5 -7,0 -14.7,-8.5 -3.5,-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+
+      <!-- small 4-point sparkle -->
+      <span class="bubble b12 c-blue"><svg viewBox="-12 -12 24 24" width="28" height="28"><path d="M0,-11 L2,-2 L11,0 L2,2 L0,11 L-2,2 L-11,0 L-2,-2 Z" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg></span>
+
+      <!-- large 8-point star -->
+      <span class="bubble b13 c-blue"><svg viewBox="-20 -20 40 40" width="54" height="54"><polygon points="0,-18 2.9,-6.9 12.7,-12.7 6.9,-2.9 18,0 6.9,2.9 12.7,12.7 2.9,6.9 0,18 -2.9,6.9 -12.7,12.7 -6.9,2.9 -18,0 -6.9,-2.9 -12.7,-12.7 -2.9,-6.9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+
+      <!-- tall elongated sparkle -->
+      <span class="bubble b14 c-teal"><svg viewBox="-9 -26 18 52" width="22" height="48"><path d="M0,-24 L1,-1 L8,0 L1,1 L0,24 L-1,1 L-8,0 L-1,-1 Z" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linejoin="round"/><circle cx="0" cy="-12" r="1.2" fill="currentColor"/><circle cx="0" cy="12" r="1.2" fill="currentColor"/></svg></span>
+
+    </div>
+
+  </header>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-tag" data-i18n="about.tag">Who we are</div>
+      <h2 class="section-title" data-i18n="about.title">Good Vibes, Great Songs</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p data-i18n="about.p1">Miss Chief and the Bandits are a six-piece pop rock cover band with one simple mission: fill your venue, your dance floor, and your soul with nothing but pure, unfiltered fun.</p>
+          <p data-i18n="about.p2">From anthems you screamed in your car to guilty pleasures you secretly adore, we play it all with a smile and a whole lot of energy. No pretension, no slow moments — just great music and even better vibes.</p>
+          <p data-i18n="about.p3">Perfect for festivals, corporate parties, club nights, or any occasion that deserves an upgrade from a Spotify playlist.</p>
+        </div>
+        <div class="about-icons">
+          <div class="icon-card" style="--c:#00c896">&#127928;<span>Pop</span></div>
+          <div class="icon-card" style="--c:#1a6fd4">&#9889;<span>Rock</span></div>
+          <div class="icon-card" style="--c:#f2ede0">&#127881;<span data-i18n="about.party">Party</span></div>
+          <div class="icon-card" style="--c:#1a6fd4">&#9825;<span>Fun</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND MEMBERS -->
+  <section class="section band" id="band">
+    <div class="container">
+      <div class="section-tag" data-i18n="band.tag">Meet the crew</div>
+      <h2 class="section-title" data-i18n="band.title">The Band</h2>
+
+      <h3 class="group-label misses-label">&#9733; <span data-i18n="band.misses">The Misses</span> &#9733;</h3>
+      <div class="members-grid members-grid--two">
+
+        <div class="member-card" style="--accent:#00c896">
+          <div class="member-avatar"><span class="avatar-icon">&#127908;</span></div>
+          <div class="member-info">
+            <h3>Nikki</h3>
+            <p class="member-role" data-i18n="role.vocals">Vocals</p>
+            <p class="member-bio" data-i18n="bio.nikki">The voice that lights up the room before she even sings a note. Nikki brings heart, sass, and unstoppable stage presence to every show.</p>
+          </div>
+        </div>
+
+        <div class="member-card" style="--accent:#00c896">
+          <div class="member-avatar"><span class="avatar-icon">&#127908;</span></div>
+          <div class="member-info">
+            <h3>Emma</h3>
+            <p class="member-role" data-i18n="role.vocals">Vocals</p>
+            <p class="member-bio" data-i18n="bio.emma">Power, sweetness, and a smile that could melt stadiums. Together with Nikki, Emma makes every chorus twice as dangerous.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <h3 class="group-label bandits-label">&#9889; <span data-i18n="band.bandits">The Bandits</span> &#9889;</h3>
+      <div class="members-grid members-grid--two">
+
+        <div class="member-card" style="--accent:#1a6fd4">
+          <div class="member-avatar"><span class="avatar-icon">&#127928;</span></div>
+          <div class="member-info">
+            <h3>Ruud</h3>
+            <p class="member-role" data-i18n="role.guitar">Guitar</p>
+            <p class="member-bio" data-i18n="bio.ruud">Riffs that'll make your hair stand on end and solos that'll make you forget your own name. Ruud keeps the fire burning six strings at a time.</p>
+          </div>
+        </div>
+
+        <div class="member-card" style="--accent:#1a6fd4">
+          <div class="member-avatar">
+            <svg class="avatar-bass" viewBox="0 0 48 96" fill="currentColor" aria-hidden="true">
+              <!-- headstock (Jazz Bass 2+2 offset) -->
+              <rect x="20" y="2" width="8" height="12" rx="2"/>
+              <ellipse cx="15" cy="5"  rx="3.5" ry="3"/>
+              <ellipse cx="15" cy="12" rx="3.5" ry="3"/>
+              <ellipse cx="33" cy="5"  rx="3.5" ry="3"/>
+              <ellipse cx="33" cy="12" rx="3.5" ry="3"/>
+              <!-- nut -->
+              <rect x="18" y="13" width="12" height="2.5" rx="1"/>
+              <!-- neck -->
+              <rect x="21" y="15" width="6" height="46" rx="2"/>
+              <!-- fret lines -->
+              <rect x="21" y="22" width="6" height="1" opacity="0.4"/>
+              <rect x="21" y="30" width="6" height="1" opacity="0.4"/>
+              <rect x="21" y="38" width="6" height="1" opacity="0.4"/>
+              <rect x="21" y="46" width="6" height="1" opacity="0.4"/>
+              <!-- Jazz Bass body — offset double cutaway -->
+              <path d="M24,60 C10,58 4,65 5,75 C6,85 14,92 24,92 C34,92 42,85 43,75 C44,65 38,58 24,60 Z"/>
+              <path d="M24,60 C14,60 10,54 12,47 C14,40 20,38 24,42 C28,38 34,40 36,47 C38,54 34,60 24,60 Z"/>
+              <!-- pickup lines -->
+              <rect x="16" y="70" width="16" height="3" rx="1" opacity="0.55"/>
+              <rect x="17" y="78" width="14" height="3" rx="1" opacity="0.55"/>
+              <!-- bridge -->
+              <rect x="18" y="84" width="12" height="3" rx="1" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="member-info">
+            <h3>Erik-Jan</h3>
+            <p class="member-role" data-i18n="role.bass">Bass</p>
+            <p class="member-bio" data-i18n="bio.erikjan">The groove machine. Erik-Jan lays down the low end with surgical precision and a coolness that makes the whole band look good.</p>
+          </div>
+        </div>
+
+        <div class="member-card" style="--accent:#1a6fd4">
+          <div class="member-avatar"><span class="avatar-icon">&#127929;</span></div>
+          <div class="member-info">
+            <h3>Pieter</h3>
+            <p class="member-role" data-i18n="role.keys">Keyboards</p>
+            <p class="member-bio" data-i18n="bio.pieter">From lush synth pads to thundering piano chords, Pieter fills every corner of the room with sound and leaves no ear unattended.</p>
+          </div>
+        </div>
+
+        <div class="member-card" style="--accent:#1a6fd4">
+          <div class="member-avatar"><span class="avatar-icon">&#129345;</span></div>
+          <div class="member-info">
+            <h3>Ingo</h3>
+            <p class="member-role" data-i18n="role.drums">Drums &amp; Vocals</p>
+            <p class="member-bio" data-i18n="bio.ingo">The heartbeat of the Bandits. Ingo drives the engine hard, keeps everyone in line, and still somehow finds time to sing about it.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA -->
+  <section class="section media" id="media">
+    <div class="container">
+      <div class="section-tag" data-i18n="media.tag">See &amp; hear us</div>
+      <h2 class="section-title" data-i18n="media.title">Media</h2>
+
+      <h3 class="group-label misses-label" style="margin-top:0">&#127909; Video</h3>
+      <div class="media-video-grid">
+        <div class="video-card">
+          <div class="yt-thumb" data-ytid="Aas4FYLP93Q">
+            <img src="https://img.youtube.com/vi/Aas4FYLP93Q/maxresdefault.jpg" alt="Miss Chief and the Bandits – live video" />
+            <button class="yt-play" aria-label="Play video">&#9654;</button>
+          </div>
+          <div class="media-caption">Miss Chief &amp; the Bandits — Live</div>
+        </div>
+      </div>
+
+      <h3 class="group-label bandits-label">&#127925; Audio</h3>
+      <div class="media-audio-list">
+
+        <div class="audio-card">
+          <div class="audio-meta">
+            <span class="audio-title">Blow</span>
+            <span class="audio-sub" data-i18n="media.recording">Live recording — December 2025</span>
+          </div>
+          <audio controls preload="none">
+            <source src="media/Miss%20Chief%20251212%20Blow%20v2.m4a" type="audio/mp4" />
+          </audio>
+        </div>
+
+        <div class="audio-card">
+          <div class="audio-meta">
+            <span class="audio-title">Cosmic Girl</span>
+            <span class="audio-sub" data-i18n="media.recording">Live recording — December 2025</span>
+          </div>
+          <audio controls preload="none">
+            <source src="media/Miss%20Chief%20251212%20Cosmic%20Girl%20v2_2.m4a" type="audio/mp4" />
+          </audio>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SETLIST -->
+  <section class="section setlist" id="setlist">
+    <div class="container">
+      <div class="section-tag" data-i18n="setlist.tag">What we play</div>
+      <h2 class="section-title" data-i18n="setlist.title">Crowd Favorites on Our Setlist</h2>
+      <p class="setlist-intro" data-i18n="setlist.intro">A taste of what we play — order and selection vary per show.</p>
+
+      <div class="setlist-grid setlist-grid--single">
+        <div class="setlist-set">
+          <ol class="set-songs">
+            <li><span class="song-title">Easy Lover</span><span class="song-artist">Phil Collins</span></li>
+            <li><span class="song-title">Messy</span><span class="song-artist">Lola Young</span></li>
+            <li><span class="song-title">Madonna Medley</span><span class="song-artist">Madonna</span></li>
+            <li><span class="song-title">Het Midden</span><span class="song-artist">Meau &amp; Pommelien Thijs</span></li>
+            <li><span class="song-title">Long Train Running</span><span class="song-artist">The Doobie Brothers</span></li>
+            <li><span class="song-title">ABBA Medley</span><span class="song-artist">ABBA</span></li>
+            <li><span class="song-title">Hold the Line</span><span class="song-artist">Toto</span></li>
+            <li><span class="song-title">Anyplace Anywhere Anytime</span><span class="song-artist">Nena &amp; Kim Wilde</span></li>
+            <li><span class="song-title">You Shook Me All Night Long</span><span class="song-artist">AC/DC</span></li>
+            <li><span class="song-title">Blow</span><span class="song-artist">Ed Sheeran</span></li>
+            <li><span class="song-title">Smooth</span><span class="song-artist">Santana</span></li>
+            <li><span class="song-title">Cosmic Girl</span><span class="song-artist">Jamiroquai</span></li>
+            <li><span class="song-title">Disco Medley</span><span class="song-artist">Various</span></li>
+            <li><span class="song-title">Noodgeval</span><span class="song-artist">Goldband</span></li>
+            <li><span class="song-title">90's Medley</span><span class="song-artist">Various</span></li>
+            <li><span class="song-title">Something Got Me Started</span><span class="song-artist">Simply Red</span></li>
+            <li><span class="song-title">Superstition</span><span class="song-artist">Stevie Wonder</span></li>
+            <li><span class="song-title">Livin' on a Prayer</span><span class="song-artist">Bon Jovi</span></li>
+            <li><span class="song-title">Jump</span><span class="song-artist">Van Halen</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWS -->
+  <section class="section shows" id="shows">
+    <div class="container">
+      <div class="section-tag" data-i18n="shows.tag">On the road</div>
+      <h2 class="section-title" data-i18n="shows.title">Upcoming Shows</h2>
+      <div class="shows-list">
+        <div class="show-item">
+          <div class="show-date"><span class="day">14</span><span class="month">Jun</span></div>
+          <div class="show-details">
+            <h3 data-i18n="show1.title">Summer Kick-off Festival</h3>
+            <p>&#128205; Nijmegen &bull; <span data-i18n="show.main-stage">Main Stage</span></p>
+          </div>
+          <a href="#contact" class="btn btn-small" data-i18n="show.tickets">Tickets</a>
+        </div>
+        <div class="show-item">
+          <div class="show-date"><span class="day">28</span><span class="month">Jun</span></div>
+          <div class="show-details">
+            <h3 data-i18n="show2.title">Rooftop Party Night</h3>
+            <p>&#128205; Amsterdam &bull; <span data-i18n="show.rooftop">Rooftop Venue</span></p>
+          </div>
+          <a href="#contact" class="btn btn-small" data-i18n="show.tickets">Tickets</a>
+        </div>
+        <div class="show-item">
+          <div class="show-date"><span class="day">19</span><span class="month">Jul</span></div>
+          <div class="show-details">
+            <h3 data-i18n="show3.title">Beach Club Bonanza</h3>
+            <p>&#128205; Zandvoort &bull; <span data-i18n="show.beach">Beach Club</span></p>
+          </div>
+          <a href="#contact" class="btn btn-small" data-i18n="show.tickets">Tickets</a>
+        </div>
+        <div class="show-item">
+          <div class="show-date"><span class="day">02</span><span class="month">Aug</span></div>
+          <div class="show-details">
+            <h3 data-i18n="show4.title">Corporate Summer Bash</h3>
+            <p>&#128205; Utrecht &bull; <span data-i18n="show.private">Private Event</span></p>
+          </div>
+          <a href="#contact" class="btn btn-small" data-i18n="show.info">Info</a>
+        </div>
+      </div>
+      <p class="shows-note"><span data-i18n="shows.note">Want us at your event?</span> <a href="#contact" data-i18n="shows.note.link">Get in touch!</a></p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-tag" data-i18n="contact.tag">Say hello</div>
+      <h2 class="section-title" data-i18n="contact.title">Book or Contact Us</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p data-i18n="contact.p">Want to book Miss Chief and the Bandits for your event, festival, or party? We'd love to hear from you!</p>
+          <ul class="contact-list">
+            <li>&#9993; <a href="mailto:nikki.tahapary@gmail.com">nikki.tahapary@gmail.com</a></li>
+            <li>&#128222; <a href="tel:+31625335781">+31 6 25 33 57 81</a></li>
+            <li>&#128100; Nikki Tahapary</li>
+          </ul>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <input type="text"  data-i18n-placeholder="form.name"    placeholder="Your name"    required />
+            <input type="email" data-i18n-placeholder="form.email"   placeholder="Your email"   required />
+          </div>
+          <input type="text"    data-i18n-placeholder="form.subject" placeholder="Subject (e.g. Booking enquiry)" />
+          <textarea rows="5"   data-i18n-placeholder="form.message"  placeholder="Tell us about your event..."></textarea>
+          <button type="submit" class="btn btn-primary" data-i18n="form.submit">Send it! &#9889;</button>
+        </form>
+      </div>
+
+      <!-- TECHNICAL RIDER -->
+      <div class="rider-wrap">
+        <button class="rider-toggle" id="riderToggle" aria-expanded="false">
+          <span>&#127897; <span data-i18n="rider.title">Technical Rider</span></span>
+          <span class="rider-arrow">&#8964;</span>
+        </button>
+        <div class="rider-body" id="riderBody">
+
+          <div class="rider-grid">
+
+            <div class="rider-card">
+              <h4>&#127908; <span data-i18n="rider.sound.title">Sound</span></h4>
+              <p data-i18n="rider.sound.p1">The band carries its own IEM rig with passive splitters (Behringer Ultralink MS8000) and a Behringer Wing Rack. All members use wired in-ears with individual headphone amplifiers.</p>
+              <p data-i18n="rider.sound.p2">Lead vocals rotate per song between the two vocalists and drummer.</p>
+            </div>
+
+            <div class="rider-card">
+              <h4>&#9889; <span data-i18n="rider.venue.title">Venue provides</span></h4>
+              <ul>
+                <li data-i18n="rider.venue.li1">Drum mics &amp; cabling (kick, snare, 3&times; rack tom, floor tom, 2&times; overhead)</li>
+                <li data-i18n="rider.venue.li2">3&times; vocal mic (SM58 or similar) + stands</li>
+                <li data-i18n="rider.venue.li3">3 power outlets (230V) for amps</li>
+                <li data-i18n="rider.venue.li4">Mixing desk</li>
+                <li data-i18n="rider.venue.li5">PA system</li>
+              </ul>
+            </div>
+
+            <div class="rider-card">
+              <h4>&#128230; <span data-i18n="rider.band.title">Band brings</span></h4>
+              <ul>
+                <li data-i18n="rider.band.li1">Drum kit</li>
+                <li>Bass pre-amp / DI</li>
+                <li>Guitar pre-amp / DI</li>
+                <li>Keys / DI</li>
+                <li>IEM rig (Behringer Wing Rack + Ultralink)</li>
+                <li data-i18n="rider.band.li6">In-ears + headphone amplifiers</li>
+              </ul>
+            </div>
+
+            <div class="rider-card rider-card--wide">
+              <h4>&#127926; <span data-i18n="rider.stage.title">Stage Plot</span></h4>
+              <div class="stage">
+                <div class="stage-label">&#8592; <span data-i18n="rider.stage.left">Stage Left</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span data-i18n="rider.stage.right">Stage Right</span> &#8594;</div>
+                <div class="stage-back">
+                  <div class="stage-pos sp-iem">IEM Rig<span>230V</span></div>
+                  <div class="stage-pos sp-guitar">Guitar<br/>Ruud<span>230V</span></div>
+                  <div class="stage-pos sp-drums">Drums<br/>Ingo &#127783;<span data-i18n="rider.stage.lefthanded">left-handed</span></div>
+                  <div class="stage-pos sp-bass">Bass<br/>Erik-Jan<span>230V</span></div>
+                  <div class="stage-pos sp-keys">Keys<br/>Pieter<span>230V</span></div>
+                </div>
+                <div class="stage-front">
+                  <div class="stage-pos sp-vocal">&#127908; <span data-i18n="rider.stage.vocal">Vocal</span><br/>Emma</div>
+                  <div class="stage-pos sp-vocal">&#127908; <span data-i18n="rider.stage.vocal">Vocal</span><br/>Nikki</div>
+                </div>
+                <div class="stage-label stage-label--audience">&#9660; <span data-i18n="rider.stage.audience">Audience</span> &#9660;</div>
+              </div>
+            </div>
+
+          </div>
+
+          <h4 class="rider-subtitle">&#128204; <span data-i18n="rider.input.title">Input List</span></h4>
+          <div class="input-list-wrap">
+            <table class="input-list">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th data-i18n="rider.input.th.instrument">Instrument</th>
+                  <th data-i18n="rider.input.th.type">Type</th>
+                  <th data-i18n="rider.input.th.notes">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="ch-drums"><td>1</td><td>Kick</td><td>Mic</td><td data-i18n="rider.input.akg-similar">AKG kit or similar</td></tr>
+                <tr class="ch-drums"><td>2</td><td>Snare</td><td>Mic</td><td>AKG kit</td></tr>
+                <tr class="ch-drums"><td>3</td><td>Tom 1</td><td>Mic</td><td>AKG kit</td></tr>
+                <tr class="ch-drums"><td>4</td><td>Tom 2</td><td>Mic</td><td>AKG kit</td></tr>
+                <tr class="ch-drums"><td>5</td><td>Tom 3</td><td>Mic</td><td>AKG kit</td></tr>
+                <tr class="ch-drums"><td>6</td><td>Floor Tom</td><td>Mic</td><td>AKG kit</td></tr>
+                <tr class="ch-drums"><td>7</td><td>Overhead L</td><td>Mic</td><td>AKG kit</td></tr>
+                <tr class="ch-drums"><td>8</td><td>Overhead R</td><td>Mic</td><td>AKG kit</td></tr>
+                <tr class="ch-guitar"><td>9</td><td>Guitar L</td><td>DI</td><td data-i18n="rider.input.pedal">Direct out from pedal board</td></tr>
+                <tr class="ch-guitar"><td>10</td><td>Guitar R</td><td>DI</td><td data-i18n="rider.input.pedal">Direct out from pedal board</td></tr>
+                <tr class="ch-keys"><td>11</td><td>Keyboard L</td><td>DI</td><td></td></tr>
+                <tr class="ch-keys"><td>12</td><td>Keyboard R</td><td>DI</td><td></td></tr>
+                <tr class="ch-bass"><td>13</td><td>Bass</td><td>DI</td><td data-i18n="rider.input.pedal">Direct out from pedal board</td></tr>
+                <tr class="ch-vocal"><td>14</td><td>Vocal Nikki</td><td>Mic</td><td data-i18n="rider.input.sm58">SM58 or similar</td></tr>
+                <tr class="ch-vocal"><td>15</td><td>Vocal Emma</td><td>Mic</td><td data-i18n="rider.input.sm58">SM58 or similar</td></tr>
+                <tr class="ch-vocal"><td>16</td><td>Vocal Ingo</td><td>Mic</td><td data-i18n="rider.input.sm58">SM58 or similar</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p><span class="footer-star">&#9733;</span> Miss Chief &amp; the Bandits &mdash; <span data-i18n="footer.main">Stealing songs since 2021</span> <span class="footer-star">&#9733;</span></p>
+    <p class="footer-sub"><span data-i18n="footer.sub.before">Made with</span> <span class="footer-heart">&#9825;</span> <span data-i18n="footer.sub.after">and way too much reverb</span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
