@@ -4,8 +4,9 @@
 :root {
   --teal:   #00c896;   /* logo bg / primary */
   --blue:   #1a6fd4;   /* logo blue stripes */
+  --purple: #9b5de5;   /* third accent — sound / energy */
   --cream:  #f2ede0;   /* logo text fill */
-  --red:    #1a6fd4;   /* remapped to blue */
+  --red:    #9b5de5;   /* remapped to purple */
   --navy:   #0d1a27;   /* logo text dark */
   --dark:   #091810;   /* section dark */
   --darker: #050f0a;   /* page bg */
@@ -65,7 +66,8 @@ a { color: inherit; text-decoration: none; }
   background: rgba(5, 15, 10, 0.85);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  border-bottom: 2px solid rgba(0, 200, 150, 0.3);
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--teal), var(--blue), var(--purple)) 1;
   transition: background 0.3s;
 }
 
@@ -184,7 +186,7 @@ a { color: inherit; text-decoration: none; }
 .hero-bg-orb--teal2 {
   width: 40vw; height: 40vw;
   top: 40%; left: 35%;
-  background: rgba(0,200,150,0.08);
+  background: rgba(155,93,229,0.1);
   animation: orbDrift 14s ease-in-out infinite alternate;
 }
 @keyframes orbDrift {
@@ -259,7 +261,7 @@ a { color: inherit; text-decoration: none; }
   font-family: 'Pacifico', cursive;
   font-size: clamp(3.5rem, 10vw, 8rem);
   line-height: 1.05;
-  background: linear-gradient(135deg, var(--teal) 0%, var(--cream) 50%, var(--blue) 100%);
+  background: linear-gradient(90deg, var(--cream) 0%, rgba(242,237,224,0.7) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -284,6 +286,9 @@ a { color: inherit; text-decoration: none; }
 }
 .ls1, .ls2, .ls3, .ls4, .ls5, .ls6 { font-size: 2rem; color: var(--teal); }
 .ls7, .ls8, .ls9, .ls10, .ls11, .ls12, .ls13, .ls14 { font-size: 1.4rem; color: var(--blue); }
+/* purple sparks — every third, across both rings */
+.ls2, .ls5 { color: var(--purple); }
+.ls8, .ls11, .ls14 { color: var(--purple); }
 /* inner ring — 6 sparks */
 .ls1  { animation-duration: 8s;  animation-delay: 0s;      --r: 320px; --start: 0deg;   }
 .ls2  { animation-duration: 8s;  animation-delay: -1.33s;  --r: 320px; --start: 60deg;  }
@@ -525,16 +530,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 .misses-label  { color: var(--teal); }
-.group-label.misses-label, .group-label.bandits-label { font-size: 2rem; }
+.group-label.misses-label, .group-label.bandits-label, .group-label.david-label { font-size: 2rem; }
+.david-label { color: var(--purple); }
+.c-purple { color: var(--purple); }
+.members-grid--single-card { grid-template-columns: minmax(0, 520px); justify-content: center; }
 .label-star    { color: #ffd700 !important; }
 .label-bolt    { font-size: 2rem; }
-.bandits-label { color: var(--blue);
-  /* small red underline nod to logo stripe */
-  text-decoration: underline;
-  text-decoration-color: var(--red);
-  text-decoration-thickness: 3px;
-  text-underline-offset: 6px;
-}
+.bandits-label { color: var(--blue); text-decoration: none; }
 
 .members-grid {
   display: grid;
@@ -1139,59 +1141,148 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Stage plot */
-.stage {
+/* ─── Stage Plot ─────────────────────────────────────────────────── */
+.stage-plot {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0;
 }
 
-.stage-label {
-  font-size: 0.72rem;
+.stage-directions {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
   font-weight: 900;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(242,237,224,0.4);
+  margin-bottom: 0.4rem;
+}
+
+.stage-area {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 30%, rgba(26,111,212,0.08) 0%, transparent 70%),
+    rgba(0,0,0,0.35);
+  border: 2px solid rgba(0,200,150,0.25);
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  padding: 1rem 1.25rem 1.25rem;
+  overflow: hidden;
+}
+
+/* Hatched back wall */
+.stage-wall {
+  height: 10px;
+  border-radius: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(26,111,212,0.7)  0px,  rgba(26,111,212,0.7)  16px,
+    rgba(26,111,212,0.2) 16px, rgba(26,111,212,0.2) 20px
+  );
+  margin-bottom: 1.5rem;
+}
+
+/* Stage apron / front edge */
+.stage-apron {
+  height: 6px;
+  border-radius: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0,200,150,0.7)  0px,  rgba(0,200,150,0.7)  16px,
+    rgba(0,200,150,0.2) 16px, rgba(0,200,150,0.2) 20px
+  );
+  margin-top: 1.5rem;
+}
+
+/* Free-position map */
+.stage-map {
+  position: relative;
+  width: 100%;
+  padding-bottom: 62%;
+}
+
+/* Node styling */
+.sp-node {
+  position: absolute;
+  width: 14%;
+  border-radius: 10px;
+  padding: 0.5rem 0.3rem;
+  text-align: center;
+  background: rgba(26,111,212,0.18);
+  border: 1.5px solid rgba(26,111,212,0.45);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.sp-node:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+
+.sp-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.sp-name {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--cream);
+  line-height: 1.2;
+}
+.sp-detail {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(242,237,224,0.5);
+  margin-top: 0.2rem;
+}
+
+/* Colour overrides */
+.sp-vocal { background: rgba(0,200,150,0.15); border-color: rgba(0,200,150,0.45); }
+.sp-drums { background: rgba(0,200,150,0.1);  border-color: rgba(0,200,150,0.3);  }
+
+/* Drum kit node — wider with SVG kit */
+.sp-drums-big { width: 26%; }
+
+.sp-drumkit-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: var(--teal);
+  margin-bottom: 0.3rem;
+  filter: drop-shadow(0 0 4px rgba(0,200,150,0.4));
+}
+
+/* Audience label */
+.stage-audience {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(242,237,224,0.35);
+  background: rgba(0,0,0,0.2);
+  border: 2px solid rgba(0,200,150,0.25);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  padding: 0.5rem;
 }
 
-.stage-label--audience { text-align: center; margin-top: 0.25rem; }
-
-.stage-back,
-.stage-front {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: center;
-  flex-wrap: wrap;
+@media (max-width: 600px) {
+  .stage-map { padding-bottom: 120%; }
+  .sp-node { width: 22%; }
+  .sp-drums-big { width: 30%; }
+  .sp-icon { font-size: 1rem; }
+  .sp-name { font-size: 0.65rem; }
+  .sp-detail { display: none; }
 }
-
-.stage-pos {
-  background: rgba(26,111,212,0.18);
-  border: 1.5px solid rgba(26,111,212,0.4);
-  border-radius: 12px;
-  padding: 0.6rem 1rem;
-  font-size: 0.82rem;
-  font-weight: 800;
-  text-align: center;
-  color: var(--cream);
-  line-height: 1.4;
-  position: relative;
-}
-
-.stage-pos span {
-  display: block;
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: rgba(242,237,224,0.45);
-  margin-top: 0.15rem;
-}
-
-.sp-iem    { background: rgba(26,111,212,0.18);  border-color: rgba(26,111,212,0.45); }
-.sp-drums  { background: rgba(0,200,150,0.15);  border-color: rgba(0,200,150,0.4); min-width: 110px; }
-.sp-guitar { background: rgba(26,111,212,0.18); border-color: rgba(26,111,212,0.45); }
-.sp-bass   { background: rgba(26,111,212,0.18); border-color: rgba(26,111,212,0.45); }
-.sp-keys   { background: rgba(26,111,212,0.18); border-color: rgba(26,111,212,0.45); }
-.sp-vocal  { background: rgba(0,200,150,0.12);  border-color: rgba(0,200,150,0.35); }
 
 /* Input list */
+.rider-note {
+  margin-top: 0.85rem;
+  font-size: 0.82rem;
+  color: rgba(242,237,224,0.6);
+  border-left: 3px solid rgba(0,200,150,0.4);
+  padding-left: 0.75rem;
+  font-style: italic;
+}
+
 .rider-subtitle {
   font-family: 'Pacifico', cursive;
   font-size: 1.1rem;
@@ -1251,7 +1342,7 @@ a { color: inherit; text-decoration: none; }
 .footer {
   background: var(--darker);
   border-top: 3px solid transparent;
-  border-image: linear-gradient(90deg, var(--teal), var(--blue), var(--red)) 1;
+  border-image: linear-gradient(90deg, var(--teal), var(--blue), var(--purple)) 1;
   text-align: center;
   padding: 2rem 1.5rem;
   color: rgba(242,237,224,0.45);
@@ -1262,8 +1353,9 @@ a { color: inherit; text-decoration: none; }
 }
 
 .footer-sub { font-size: 0.8rem; margin-top: 0.4rem; }
+.nowrap { white-space: nowrap; }
 .footer-star { color: #ffd700; }
-.footer-heart { color: #cc2200; }
+.footer-heart { color: var(--purple); }
 
 /* ─── Animations ────────────────────────────────────────────────── */
 @keyframes fadeDown {
@@ -1310,6 +1402,10 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 480px) {
   .hero-cta { flex-direction: column; align-items: center; }
   .about-icons { grid-template-columns: 1fr 1fr; }
+
+  /* Prevent The Miss Chiefs / The Bandits labels from breaking mid-label */
+  .group-label.misses-label,
+  .group-label.bandits-label { font-size: 1.55rem; white-space: nowrap; }
 
   /* Orbit — shrink radii so sparks stay on-screen */
   .ls1, .ls2, .ls3, .ls4, .ls5, .ls6  { --r: 130px; font-size: 1.2rem; }

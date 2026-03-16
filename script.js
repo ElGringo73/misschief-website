@@ -5,7 +5,7 @@ const t = {
     'nav.shows': 'Shows', 'nav.contact': 'Contact',
     'hero.tagline': 'We steal your favourite songs \u2014 and your heart.',
     'hero.cta.live': 'See Us Live', 'hero.cta.book': 'Book Us',
-    'about.tag': 'Who we are', 'about.title': 'Good Vibes, Great Songs',
+    'about.tag': 'Who we are', 'about.title': 'Good Vibes, <span class="nowrap">Great Songs</span>',
     'about.p1': 'Miss Chief and the Bandits are a six-piece pop rock cover band with one simple mission: fill your venue, your dance floor, and your soul with nothing but pure, unfiltered fun.',
     'about.p2': 'From anthems you screamed in your car to guilty pleasures you secretly adore, we play it all with a smile and a whole lot of energy. No pretension, no slow moments \u2014 just great music and even better vibes.',
     'about.p3': 'Perfect for festivals, corporate parties, club nights, or any occasion that deserves an upgrade from a Spotify playlist.',
@@ -14,6 +14,9 @@ const t = {
     'band.misses': 'The Miss Chiefs', 'band.bandits': 'The Bandits',
     'role.vocals': 'Vocals', 'role.guitar': 'Guitar', 'role.bass': 'Bass',
     'role.keys': 'Keyboards', 'role.drums': 'Drums & Vocals',
+    'role.sound': 'Chief of Sound',
+    'band.david': 'Chief of Sound',
+    'bio.david': 'The man behind the mix. While the band steals songs, David steals the show from behind the desk — shaping every note, balancing every voice, and making sure the kick drum hits you right in the chest. The unsung hero of every great night out.',
     'bio.nikki': 'The voice that lights up the room before she even sings a note. Nikki brings heart, sass, and unstoppable stage presence to every show.',
     'bio.emma': 'Power, sweetness, and a smile that could melt stadiums. Together with Nikki, Emma makes every chorus twice as dangerous.',
     'bio.ruud': "Riffs that'll make your hair stand on end and solos that'll make you forget your own name. Ruud keeps the fire burning six strings at a time.",
@@ -45,6 +48,7 @@ const t = {
     'rider.venue.li2': '3\u00d7 vocal mic (SM58 or similar) + stands',
     'rider.venue.li3': '3 power outlets (230V) for amps',
     'rider.venue.li4': 'Mixing desk', 'rider.venue.li5': 'PA system',
+    'rider.venue.pa-note': 'The band can also offer to bring a PA system. Please contact us on the possibilities.',
     'rider.band.title': 'Band brings',
     'rider.band.li1': 'Drum kit', 'rider.band.li6': 'In-ears + headphone amplifiers',
     'rider.stage.title': 'Stage Plot', 'rider.stage.left': 'Stage Left',
@@ -69,7 +73,7 @@ const t = {
     'nav.shows': 'Shows', 'nav.contact': 'Contact',
     'hero.tagline': 'We stelen je favoriete nummers \u2014 en je hart.',
     'hero.cta.live': 'Kom ons zien', 'hero.cta.book': 'Boek ons',
-    'about.tag': 'Wie we zijn', 'about.title': 'Goede Vibes, Geweldige Nummers',
+    'about.tag': 'Wie we zijn', 'about.title': 'Goede Vibes, <span class="nowrap">Geweldige Nummers</span>',
     'about.p1': 'Miss Chief and the Bandits is een zeskoppige pop rock coverband met \u00e9\u00e9n simpele missie: jouw zaal, dansvloer en ziel vullen met pure, onversneden fun.',
     'about.p2': 'Van nummers die je meebrult in de auto tot guilty pleasures die je stiekem adoriert \u2014 wij spelen het allemaal met een glimlach en een hoop energie. Geen pretentie, geen saaie momenten \u2014 gewoon geweldige muziek en nog betere sfeer.',
     'about.p3': 'Perfect voor festivals, bedrijfsfeesten, clubavonden of elk evenement dat een upgrade van een Spotify-playlist verdient.',
@@ -78,6 +82,9 @@ const t = {
     'band.misses': 'The Miss Chiefs', 'band.bandits': 'The Bandits',
     'role.vocals': 'Zang', 'role.guitar': 'Gitaar', 'role.bass': 'Bas',
     'role.keys': 'Toetsen', 'role.drums': 'Drums & Zang',
+    'role.sound': 'Chief of Sound',
+    'band.david': 'Chief of Sound',
+    'bio.david': 'De man achter de mix. Terwijl de band nummers steelt, steelt David de show vanachter zijn tafel — elke noot perfect ingekaderd, elke stem in balans, en die kickdrum recht in je borst. De stille kracht achter elke geweldige avond.',
     'bio.nikki': 'De stem die de zaal al verlicht voordat ze een noot zingt. Nikki brengt hart, pit en een onweerstaanbare podiumaanwezigheid naar elke show.',
     'bio.emma': 'Kracht, zoetheid en een glimlach die stadions doet smelten. Samen met Nikki maakt Emma elk refrein twee keer zo gevaarlijk.',
     'bio.ruud': 'Riffs die je haar recht overeind zetten en solo\u2019s waarna je je eigen naam vergeet. Ruud houdt het vuur brandend, zes snaren tegelijk.',
@@ -109,6 +116,7 @@ const t = {
     'rider.venue.li2': '3\u00d7 zangmicrofoon (SM58 of vergelijkbaar) + standaards',
     'rider.venue.li3': '3 stroompunten (230V) voor versterkers',
     'rider.venue.li4': 'Mengtafel', 'rider.venue.li5': 'PA systeem',
+    'rider.venue.pa-note': 'De band kan ook aanbieden een PA systeem mee te brengen. Neem contact met ons op voor de mogelijkheden.',
     'rider.band.title': 'Band neemt mee',
     'rider.band.li1': 'Drumkit', 'rider.band.li6': 'In-ears + koptelefoonversterkers',
     'rider.stage.title': 'Podiumopstelling', 'rider.stage.left': 'Podium Links',
@@ -138,6 +146,10 @@ function applyLang(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
     if (t[lang][key] !== undefined) el.textContent = t[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if (t[lang][key] !== undefined) el.innerHTML = t[lang][key];
   });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.dataset.i18nPlaceholder;
