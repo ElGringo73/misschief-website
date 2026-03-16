@@ -1,6 +1,11 @@
 /* ─── Reset & Base ─────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Prevent Safari faux-bold on display fonts */
+.nav-logo, .hero-title, .hero-subtitle, .section-title, .group-label,
+.member-info h3, .show-date .day, .rider-card h4, .rider-subtitle,
+.input-list td:first-child { font-synthesis: none; }
+
 :root {
   --teal:   #00c896;   /* logo bg / primary */
   --blue:   #1a6fd4;   /* logo blue stripes */
@@ -451,6 +456,7 @@ a { color: inherit; text-decoration: none; }
 .section-title {
   font-family: 'Pacifico', cursive;
   font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
   margin-bottom: 2.5rem;
   background: linear-gradient(90deg, var(--cream) 0%, rgba(242,237,224,0.7) 100%);
   -webkit-background-clip: text;
@@ -602,6 +608,28 @@ a { color: inherit; text-decoration: none; }
   object-fit: cover;
   object-position: top center;
   border-radius: 50%;
+  cursor: zoom-in;
+}
+
+/* ─── Photo lightbox ────────────────────────────────────────────── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: min(90vw, 600px);
+  max-height: 90vh;
+  border-radius: 16px;
+  box-shadow: 0 8px 60px rgba(0,0,0,0.6);
+  object-fit: contain;
+  animation: fadeIn 0.2s ease;
 }
 
 /* About section band photo */
@@ -630,6 +658,8 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: auto;
   display: block;
+  transform: scale(1.08);
+  transform-origin: center center;
 }
 
 .avatar-bass {
@@ -642,13 +672,13 @@ a { color: inherit; text-decoration: none; }
 .member-info h3 {
   font-family: 'Pacifico', cursive;
   font-size: 1.3rem;
-  color: var(--accent);
+  color: #ffffff;
   margin-bottom: 0.2rem;
 }
 
 .member-role {
   font-size: 0.8rem;
-  font-weight: 900;
+  font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: rgba(242,237,224,0.45);
@@ -1108,7 +1138,7 @@ a { color: inherit; text-decoration: none; }
 .rider-card h4 {
   font-family: 'Pacifico', cursive;
   font-size: 1rem;
-  color: var(--teal);
+  color: #ffffff;
   margin-bottom: 0.75rem;
 }
 
@@ -1240,14 +1270,7 @@ a { color: inherit; text-decoration: none; }
 /* Drum kit node — wider with SVG kit */
 .sp-drums-big { width: 26%; }
 
-.sp-drumkit-svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  color: var(--teal);
-  margin-bottom: 0.3rem;
-  filter: drop-shadow(0 0 4px rgba(0,200,150,0.4));
-}
+.sp-emoji { font-size: 2rem; display: block; margin-bottom: 0.2rem; }
 
 /* Audience label */
 .stage-audience {
@@ -1286,7 +1309,7 @@ a { color: inherit; text-decoration: none; }
 .rider-subtitle {
   font-family: 'Pacifico', cursive;
   font-size: 1.1rem;
-  color: var(--teal);
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 
@@ -1354,6 +1377,8 @@ a { color: inherit; text-decoration: none; }
 
 .footer-sub { font-size: 0.8rem; margin-top: 0.4rem; }
 .nowrap { white-space: nowrap; }
+.mobile-break { display: none; }
+@media (max-width: 480px) { .mobile-break { display: block; } }
 .footer-star { color: #ffd700; }
 .footer-heart { color: var(--purple); }
 

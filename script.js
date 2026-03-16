@@ -1,9 +1,13 @@
+// Always start at top on reload
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.addEventListener('load', () => window.scrollTo(0, 0));
+
 // ─── Translations ───────────────────────────────────────────────────
 const t = {
   en: {
     'nav.about': 'About', 'nav.band': 'The Band', 'nav.media': 'Media',
     'nav.shows': 'Shows', 'nav.contact': 'Contact',
-    'hero.tagline': 'We steal your favourite songs \u2014 and your heart.',
+    'hero.tagline': 'We steal your favourite songs \u2014<br class="mobile-break"> and your heart.',
     'hero.cta.live': 'See Us Live', 'hero.cta.book': 'Book Us',
     'about.tag': 'Who we are', 'about.title': 'Good Vibes, <span class="nowrap">Great Songs</span>',
     'about.p1': 'Miss Chief and the Bandits are a six-piece pop rock cover band with one simple mission: fill your venue, your dance floor, and your soul with nothing but pure, unfiltered fun.',
@@ -15,21 +19,22 @@ const t = {
     'role.vocals': 'Vocals', 'role.guitar': 'Guitar', 'role.bass': 'Bass',
     'role.keys': 'Keyboards', 'role.drums': 'Drums & Vocals',
     'role.sound': 'Chief of Sound',
-    'band.david': 'Chief of Sound',
-    'bio.david': 'The man behind the mix. While the band steals songs, David steals the show from behind the desk — shaping every note, balancing every voice, and making sure the kick drum hits you right in the chest. The unsung hero of every great night out.',
-    'bio.nikki': 'The voice that lights up the room before she even sings a note. Nikki brings heart, sass, and unstoppable stage presence to every show.',
-    'bio.emma': 'Power, sweetness, and a smile that could melt stadiums. Together with Nikki, Emma makes every chorus twice as dangerous.',
-    'bio.ruud': "Riffs that'll make your hair stand on end and solos that'll make you forget your own name. Ruud keeps the fire burning six strings at a time.",
-    'bio.erikjan': 'The groove machine. Erik-Jan lays down the low end with surgical precision and a coolness that makes the whole band look good.',
-    'bio.pieter': 'From lush synth pads to thundering piano chords, Pieter fills every corner of the room with sound and leaves no ear unattended.',
-    'bio.ingo': 'The heartbeat of the Bandits. Ingo drives the engine hard, keeps everyone in line, and still somehow finds time to sing about it.',
+    'band.david': 'The Accomplices',
+    'bio.david': 'The man behind the mix. While the band steals songs, David steals the show from behind the desk — shaping every note, balancing every voice, and making sure the kick drum hits you right in the chest. He always knows exactly which fader to push, which knob to turn, and which cable to pull. Nothing can upset him. The unsung hero of every great night out.',
+    'bio.nikki': 'The voice that lights up the room before she even sings a note. Nikki brings heart, pure soul, and unstoppable stage presence. Together with Emma, their moves will keep you on your feet all night long.',
+    'bio.emma': 'Power, sweetness, and a smile that could melt stadiums. Together with Nikki, Emma makes every chorus twice as dangerous. She is also absolutely hilarious — with a sense of humour so sharp that the rest of the band regularly cracks up mid-song, instruments and all.',
+    'bio.ruud': "Riffs that'll make your hair stand on end and solos that'll make you forget your own name. Ruud keeps the fire burning six strings at a time — but don't let the pyrotechnics fool you. When he switches to sweet, silky lead, the room goes quiet and the goosebumps arrive. It's earned him a nickname that says it all: Carlos.",
+    'bio.erikjan': 'The groove machine. Erik-Jan lays down the low end with surgical precision and a coolness that makes the whole band look good. And while his fingers hold the foundation together, his face tells the whole story — the trademark bass face: that unmistakable expression of deep concentration, quiet swagger, and pure low-end satisfaction.',
+    'bio.pieter': 'From lush synth pads to thundering piano chords, Pieter fills every corner of the room with sound and leaves no ear unattended. A certified synthesizer geek, he can conjure virtually any sound known to man — and a few that probably aren\'t.',
+    'bio.ingo': 'The heartbeat of the Bandits. Ingo drives the engine hard, keeps everyone in line, and simultaneously tries to remember his lyrics. Somehow, against all odds, everything always falls perfectly into place.',
     'media.tag': 'See & hear us', 'media.title': 'Media',
     'media.recording': 'Live recording \u2014 December 2025',
     'shows.tag': 'On the road', 'shows.title': 'Upcoming Shows',
     'show1.title': 'Summer Kick-off Festival', 'show2.title': 'Rooftop Party Night',
     'show3.title': 'Beach Club Bonanza', 'show4.title': 'Corporate Summer Bash',
     'show.main-stage': 'Main Stage', 'show.rooftop': 'Rooftop Venue',
-    'show.beach': 'Beach Club', 'show.private': 'Private Event',
+    'show.private': 'Private Event', 'show.private.note': 'Location to be announced',
+    'show.soon': 'Soon', 'show.your-show': 'Your show here', 'show.your-show.note': 'Book us for your event',
     'show.tickets': 'Tickets', 'show.info': 'Info',
     'shows.note': 'Want us at your event?', 'shows.note.link': 'Get in touch!',
     'contact.tag': 'Say hello', 'contact.title': 'Book or Contact Us',
@@ -71,7 +76,7 @@ const t = {
   nl: {
     'nav.about': 'Over ons', 'nav.band': 'De Band', 'nav.media': 'Media',
     'nav.shows': 'Shows', 'nav.contact': 'Contact',
-    'hero.tagline': 'We stelen je favoriete nummers \u2014 en je hart.',
+    'hero.tagline': 'We stelen je favoriete nummers \u2014<br class="mobile-break"> en je hart.',
     'hero.cta.live': 'Kom ons zien', 'hero.cta.book': 'Boek ons',
     'about.tag': 'Wie we zijn', 'about.title': 'Goede Vibes, <span class="nowrap">Geweldige Nummers</span>',
     'about.p1': 'Miss Chief and the Bandits is een zeskoppige pop rock coverband met \u00e9\u00e9n simpele missie: jouw zaal, dansvloer en ziel vullen met pure, onversneden fun.',
@@ -83,21 +88,22 @@ const t = {
     'role.vocals': 'Zang', 'role.guitar': 'Gitaar', 'role.bass': 'Bas',
     'role.keys': 'Toetsen', 'role.drums': 'Drums & Zang',
     'role.sound': 'Chief of Sound',
-    'band.david': 'Chief of Sound',
-    'bio.david': 'De man achter de mix. Terwijl de band nummers steelt, steelt David de show vanachter zijn tafel — elke noot perfect ingekaderd, elke stem in balans, en die kickdrum recht in je borst. De stille kracht achter elke geweldige avond.',
-    'bio.nikki': 'De stem die de zaal al verlicht voordat ze een noot zingt. Nikki brengt hart, pit en een onweerstaanbare podiumaanwezigheid naar elke show.',
-    'bio.emma': 'Kracht, zoetheid en een glimlach die stadions doet smelten. Samen met Nikki maakt Emma elk refrein twee keer zo gevaarlijk.',
-    'bio.ruud': 'Riffs die je haar recht overeind zetten en solo\u2019s waarna je je eigen naam vergeet. Ruud houdt het vuur brandend, zes snaren tegelijk.',
-    'bio.erikjan': 'De groovemachine. Erik-Jan legt de lage noten met chirurgische precisie en een coolheid die de hele band er goed uit laat zien.',
-    'bio.pieter': 'Van weelderige synthpads tot donderende pianakkoorden, Pieter vult elke hoek van de zaal met geluid en laat geen oor onberoerd.',
-    'bio.ingo': 'Het kloppend hart van de Bandits. Ingo drijft de motor op volle toeren, houdt iedereen in het gareel en vindt toch nog tijd om er ook bij te zingen.',
+    'band.david': 'The Accomplices',
+    'bio.david': 'De man achter de mix. Terwijl de band nummers steelt, steelt David de show vanachter zijn tafel — elke noot perfect ingekaderd, elke stem in balans, en die kickdrum recht in je borst. Hij weet altijd precies welke fader hij moet opentrekken, welke knop hij moet draaien en welke kabel hij moet uittrekken. Niets kan hem van zijn stuk brengen. De stille kracht achter elke geweldige avond.',
+    'bio.nikki': 'De stem die de zaal al verlicht voordat ze een noot zingt. Nikki brengt hart, pure ziel en een onweerstaanbare podiumaanwezigheid. Samen met Emma zorgen hun moves ervoor dat je de hele avond blijft dansen.',
+    'bio.emma': 'Kracht, zoetheid en een glimlach die stadions doet smelten. Samen met Nikki maakt Emma elk refrein twee keer zo gevaarlijk. Ze is ook ronduit hilarisch \u2014 met een gevoel voor humor zo scherp dat de rest van de band regelmatig dubbel ligt van het lachen, midden in een nummer.',
+    'bio.ruud': 'Riffs die je haar recht overeind zetten en solo\u2019s waarna je je eigen naam vergeet. Ruud houdt het vuur brandend, zes snaren tegelijk \u2014 maar laat de pyrotechniek je niet misleiden. Als hij overschakelt op zoet, zijdezacht leadgitaar wordt de zaal stil en verschijnen de kippenvel. Dat heeft hem een bijnaam opgeleverd die alles zegt: Carlos.',
+    'bio.erikjan': 'De groovemachine. Erik-Jan legt de lage noten met chirurgische precisie en een coolheid die de hele band er goed uit laat zien. En terwijl zijn vingers het fundament bewaken, vertelt zijn gezicht het hele verhaal \u2014 het kenmerkende bassface: die onmiskenbare uitdrukking van diepe concentratie, ingehouden swagger en pure lage-frequentie-voldoening.',
+    'bio.pieter': 'Van weelderige synthpads tot donderende pianakkoorden, Pieter vult elke hoek van de zaal met geluid en laat geen oor onberoerd. Een doorgewinterde synthesizer-fanaat, hij kan vrijwel elk geluid nabootsen dat de mens kent — en een paar die waarschijnlijk nog niet bestaan.',
+    'bio.ingo': 'Het kloppend hart van de Bandits. Ingo drijft de motor op volle toeren, houdt iedereen in het gareel en probeert ondertussen zijn teksten te onthouden. Op de een of andere manier valt alles altijd precies op zijn plek.',
     'media.tag': 'Zie & hoor ons', 'media.title': 'Media',
     'media.recording': 'Live opname \u2014 december 2025',
     'shows.tag': 'Op pad', 'shows.title': 'Aankomende Shows',
     'show1.title': 'Zomerkick-off Festival', 'show2.title': 'Rooftop Party Night',
     'show3.title': 'Beach Club Bonanza', 'show4.title': 'Bedrijfsfeest',
     'show.main-stage': 'Hoofdpodium', 'show.rooftop': 'Rooftop Locatie',
-    'show.beach': 'Beach Club', 'show.private': 'Besloten Evenement',
+    'show.private': 'Besloten Evenement', 'show.private.note': 'Locatie wordt bekendgemaakt',
+    'show.soon': 'Binnenkort', 'show.your-show': 'Jouw show hier', 'show.your-show.note': 'Boek ons voor jouw evenement',
     'show.tickets': 'Tickets', 'show.info': 'Info',
     'shows.note': 'Wil je ons op jouw evenement?', 'shows.note.link': 'Neem contact op!',
     'contact.tag': 'Zeg hallo', 'contact.title': 'Boek of Contacteer Ons',
@@ -253,6 +259,24 @@ document.querySelectorAll('.yt-thumb').forEach(thumb => {
     iframe.allowFullscreen = true;
     thumb.replaceWith(iframe);
   });
+});
+
+
+// ─── Photo lightbox ─────────────────────────────────────────────────
+const lightbox    = document.getElementById('photoLightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+
+document.querySelectorAll('.member-photo').forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+  });
+});
+
+lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') lightbox.classList.remove('open');
 });
 
 
