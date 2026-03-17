@@ -287,7 +287,8 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   pointer-events: none;
   animation: orbit linear infinite;
-  filter: drop-shadow(0 0 6px currentColor);
+  text-shadow: 0 0 8px currentColor;
+  will-change: transform;
 }
 .ls1, .ls2, .ls3, .ls4, .ls5, .ls6 { font-size: 2rem; color: var(--teal); }
 .ls7, .ls8, .ls9, .ls10, .ls11, .ls12, .ls13, .ls14 { font-size: 1.4rem; color: var(--blue); }
@@ -611,6 +612,17 @@ a { color: inherit; text-decoration: none; }
   cursor: zoom-in;
 }
 
+/* Background-image avatar for zoom-out control */
+.member-avatar--zoomed {
+  background-size: 80%;
+  background-position: top center;
+  background-repeat: no-repeat;
+  cursor: zoom-in;
+}
+.member-photo--hidden {
+  display: none;
+}
+
 /* ─── Photo lightbox ────────────────────────────────────────────── */
 .lightbox {
   display: none;
@@ -653,13 +665,14 @@ a { color: inherit; text-decoration: none; }
   border: 2px solid rgba(0,200,150,0.25);
   box-shadow: 0 8px 40px rgba(0,0,0,0.4);
   margin-bottom: 1.5rem;
+  max-height: 520px;
 }
 .misses-photo {
   width: 100%;
-  height: auto;
+  height: 520px;
+  object-fit: cover;
+  object-position: center 35%;
   display: block;
-  transform: scale(1.08);
-  transform-origin: center center;
 }
 
 .avatar-bass {
@@ -1428,9 +1441,10 @@ a { color: inherit; text-decoration: none; }
   .hero-cta { flex-direction: column; align-items: center; }
   .about-icons { grid-template-columns: 1fr 1fr; }
 
-  /* Prevent The Miss Chiefs / The Bandits labels from breaking mid-label */
+  /* Prevent labels from breaking mid-label */
   .group-label.misses-label,
-  .group-label.bandits-label { font-size: 1.55rem; white-space: nowrap; }
+  .group-label.bandits-label,
+  .group-label.david-label { font-size: 1.4rem; white-space: nowrap; }
 
   /* Orbit — shrink radii so sparks stay on-screen */
   .ls1, .ls2, .ls3, .ls4, .ls5, .ls6  { --r: 130px; font-size: 1.2rem; }
@@ -1458,4 +1472,10 @@ a { color: inherit; text-decoration: none; }
   /* Tablet: moderate orbit radius reduction */
   .ls1, .ls2, .ls3, .ls4, .ls5, .ls6  { --r: 220px; }
   .ls7, .ls8, .ls9, .ls10, .ls11, .ls12, .ls13, .ls14 { --r: 320px; }
+}
+
+/* Stop animations for reduced-motion / low-power mode — prevents GPU crashes */
+@media (prefers-reduced-motion: reduce) {
+  .logo-spark { animation: none; }
+  .hero-logo-wrap::before { display: none; }
 }
