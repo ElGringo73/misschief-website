@@ -53,9 +53,11 @@ const t = {
     'rider.venue.li2': '3\u00d7 vocal mic (SM58 or similar) + stands',
     'rider.venue.li3': '3 power outlets (230V) for amps',
     'rider.venue.li4': 'Mixing desk', 'rider.venue.li5': 'PA system',
+    'rider.venue.li6': '🍬 M&Ms — blue ones only. We\'re serious.',
     'rider.venue.pa-note': 'The band can also offer to bring a PA system. Please contact us on the possibilities.',
     'rider.band.title': 'Band brings',
     'rider.band.li1': 'Drum kit', 'rider.band.li6': 'In-ears + headphone amplifiers',
+    'rider.band.li7': '🐄🔔 More cowbell !!',
     'rider.stage.title': 'Stage Plot', 'rider.stage.left': 'Stage Left',
     'rider.stage.right': 'Stage Right', 'rider.stage.lefthanded': 'left-handed',
     'rider.stage.vocal': 'Vocal', 'rider.stage.audience': 'Audience',
@@ -122,9 +124,11 @@ const t = {
     'rider.venue.li2': '3\u00d7 zangmicrofoon (SM58 of vergelijkbaar) + standaards',
     'rider.venue.li3': '3 stroompunten (230V) voor versterkers',
     'rider.venue.li4': 'Mengtafel', 'rider.venue.li5': 'PA systeem',
+    'rider.venue.li6': '🍬 M&Ms — alleen de blauwe. We menen het.',
     'rider.venue.pa-note': 'De band kan ook aanbieden een PA systeem mee te brengen. Neem contact met ons op voor de mogelijkheden.',
     'rider.band.title': 'Band neemt mee',
     'rider.band.li1': 'Drumkit', 'rider.band.li6': 'In-ears + koptelefoonversterkers',
+    'rider.band.li7': '🐄🔔 More cowbell !!',
     'rider.stage.title': 'Podiumopstelling', 'rider.stage.left': 'Podium Links',
     'rider.stage.right': 'Podium Rechts', 'rider.stage.lefthanded': 'linkshandig',
     'rider.stage.vocal': 'Zang', 'rider.stage.audience': 'Publiek',
@@ -200,8 +204,24 @@ function createNote() {
   setTimeout(() => note.remove(), 24000);
 }
 
-for (let i = 0; i < 18; i++) setTimeout(createNote, i * 500);
-setInterval(createNote, 1800);
+// Detect low-end hardware to reduce animated compositor layers and prevent GPU crashes.
+// Uses three signals for broadest cross-platform coverage:
+//   - deviceMemory: RAM in GB (Chrome/Android; not available on iOS Safari)
+//   - hardwareConcurrency: logical CPU cores (all platforms)
+//   - viewport width: fallback for iOS where the above may be unavailable
+const isLowEnd = (
+  (navigator.deviceMemory  && navigator.deviceMemory      <= 2) ||
+  (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) ||
+  window.matchMedia('(max-width: 768px)').matches
+);
+
+const NOTE_INIT     = isLowEnd ?  3 : 18;
+const NOTE_DELAY    = isLowEnd ? 1500 : 500;
+const NOTE_INTERVAL = isLowEnd ? 6000 : 1800;
+const NOTE_MAX      = isLowEnd ?  4 : Infinity;
+
+for (let i = 0; i < NOTE_INIT; i++) setTimeout(createNote, i * NOTE_DELAY);
+setInterval(() => { if (notesBg.children.length < NOTE_MAX) createNote(); }, NOTE_INTERVAL);
 
 
 // ─── Nav scroll effect ──────────────────────────────────────────────

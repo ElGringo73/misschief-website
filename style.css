@@ -340,7 +340,7 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 4px;
-  background: linear-gradient(90deg, transparent, var(--teal), var(--blue), var(--teal), transparent);
+  background: linear-gradient(90deg, transparent, var(--teal), var(--blue), var(--purple), transparent);
 }
 
 /* ─── Floating bubbles ──────────────────────────────────────────── */
@@ -409,9 +409,9 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 4px 20px rgba(242,237,224,0.08);
 }
 .btn-outline:hover {
-  background: rgba(242,237,224,0.07);
-  border-color: var(--teal);
-  color: var(--teal);
+  background: rgba(155,93,229,0.07);
+  border-color: var(--purple);
+  color: var(--purple);
 }
 
 .btn-small {
@@ -436,7 +436,7 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, transparent, var(--teal), var(--blue), transparent);
+  background: linear-gradient(90deg, transparent, var(--teal), var(--blue), var(--purple), transparent);
   opacity: 0.4;
 }
 
@@ -452,6 +452,13 @@ a { color: inherit; text-decoration: none; }
   border-radius: 50px;
   padding: 0.3rem 1rem;
   margin-bottom: 1rem;
+}
+
+.setlist .section-tag,
+.contact .section-tag {
+  color: var(--purple);
+  background: rgba(155,93,229,0.1);
+  border-color: rgba(155,93,229,0.35);
 }
 
 .section-title {
@@ -647,6 +654,7 @@ a { color: inherit; text-decoration: none; }
 /* About section band photo */
 .about-band-photo {
   margin-top: 2.5rem;
+  margin-bottom: 3rem;
   border-radius: 20px;
   overflow: hidden;
   border: 2px solid rgba(255,255,255,0.08);
@@ -671,8 +679,9 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: 520px;
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center 80%;
   display: block;
+  filter: saturate(0.85);
 }
 
 .avatar-bass {
@@ -753,7 +762,7 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 15%;
   display: block;
   transition: transform 0.3s;
 }
@@ -796,6 +805,28 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+}
+
+.mixing-wrap {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+
+.mixing-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mixing-note {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: rgba(242,237,224,0.5);
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 .audio-card {
@@ -1478,4 +1509,44 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .logo-spark { animation: none; }
   .hero-logo-wrap::before { display: none; }
+  .hero-bg-orb  { animation: none; }
+  .hero-logo    { animation: fadeDown 0.01ms ease both; filter: drop-shadow(0 4px 20px rgba(0,200,150,0.4)); }
+  .bubble       { animation: none; }
+  .note         { animation: none; }
+}
+
+/* ─── Performance: strip heavy GPU effects on mobile ────────────
+   blur() on oversized elements is the primary iOS Safari crash cause.
+   Capable desktop/large-screen devices keep the full visual treatment. */
+@media (max-width: 768px) {
+  /* 1. Remove blur from hero orbs — biggest crash trigger on iOS */
+  .hero-bg-orb { filter: none; }
+
+  /* 2. Drop backdrop-filter blur on nav — forces a compositor layer */
+  .nav {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(5,15,10,0.96);
+  }
+
+  /* 3. Stop animating drop-shadows on logo — continuous filter repaints */
+  .hero-logo {
+    animation: fadeDown 0.7s ease both;
+    filter: drop-shadow(0 4px 20px rgba(0,200,150,0.4));
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  /* 4. Remove logo halo radial-gradient layer */
+  .hero-logo-wrap::before { display: none; }
+
+  /* 5. Hide all orbiting sparkles and remove their compositor layers */
+  .ls1,.ls2,.ls3,.ls4,.ls5,.ls6,
+  .ls7,.ls8,.ls9,.ls10,.ls11,.ls12,.ls13,.ls14 {
+    display: none;
+    will-change: auto;
+  }
+
+  /* 6. Strip drop-shadow from SVG bubbles */
+  .bubble svg { filter: none; }
 }
