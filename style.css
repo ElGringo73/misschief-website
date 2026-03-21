@@ -1522,8 +1522,8 @@ a { color: inherit; text-decoration: none; }
    blur() on oversized elements is the primary iOS Safari crash cause.
    Capable desktop/large-screen devices keep the full visual treatment. */
 @media (max-width: 768px) {
-  /* 1. Remove blur from hero orbs — biggest crash trigger on iOS */
-  .hero-bg-orb { filter: none; }
+  /* 1. Hide hero orbs — designed as blurred glows, look wrong without blur */
+  .hero-bg-orb { display: none; }
 
   /* 2. Drop backdrop-filter blur on nav — forces a compositor layer */
   .nav {
