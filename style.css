@@ -1547,4 +1547,8 @@ a { color: inherit; text-decoration: none; }
 
   /* 6. Strip drop-shadow from SVG bubbles */
   .bubble svg { filter: none; }
+
+  /* 7. Let band photo scale naturally on mobile instead of fixed crop */
+  .misses-photo-wrap { max-height: none; }
+  .misses-photo { height: auto; object-fit: unset; object-position: unset; }
 }
