@@ -12,7 +12,7 @@ const t = {
     'about.tag': 'Who we are', 'about.title': 'Good Vibes, <span class="nowrap">Great Songs</span>',
     'about.p1': 'Miss Chief and the Bandits are a six-piece pop rock cover band with one simple mission: fill your venue, your dance floor, and your soul with nothing but pure, unfiltered fun.',
     'about.p2': 'From anthems you screamed in your car to guilty pleasures you secretly adore, we play it all with a smile and a whole lot of energy. No fuss, all killer no filler \u2014 just great music and even better vibes.',
-    'about.p3': 'Perfect for festivals, corporate parties, club nights, or any occasion that deserves an upgrade from a Spotify playlist.',
+    'about.p3': 'Based in Twente, perfect for festivals, corporate parties, club nights, or any occasion that deserves an upgrade from a Spotify playlist.',
     'about.party': 'Party',
     'band.tag': 'Meet the crew', 'band.title': 'The Band',
     'band.misses': 'The Miss Chiefs', 'band.bandits': 'The Bandits',
@@ -26,7 +26,7 @@ const t = {
     'bio.ruud': "Riffs that'll make your hair stand on end and solos that'll make you forget your own name. Ruud keeps the fire burning six strings at a time — but don't let the pyrotechnics fool you. When he switches to sweet, silky lead, the room goes quiet and the goosebumps arrive. It's earned him a nickname that says it all: Carlos.",
     'bio.erikjan': 'The groove machine. Erik-Jan lays down the low end with surgical precision and a coolness that makes the whole band look good. And while his fingers hold the foundation together, his face tells the whole story — the trademark bass face: that unmistakable expression of deep concentration, quiet swagger, and pure low-end satisfaction.',
     'bio.pieter': 'From lush synth pads to thundering piano chords, Pieter fills every corner of the room with sound and leaves no ear unattended. A certified synthesizer geek, he can conjure virtually any sound known to man — and a few that probably aren\'t.',
-    'bio.ingo': 'The heartbeat of the Bandits. Ingo drives the engine hard, keeps everyone in line, and simultaneously tries to remember his lyrics. Somehow, against all odds, everything always falls into place.',
+    'bio.ingo': 'They say the drummer is the conductor of the band — only nobody\'s looking at him. Ingo doesn\'t lose sleep over it. He lays down the groove, holds everyone together and makes the whole thing feel good. Then, just to make things interesting, he sings too. At the same time. Yes, really.',
     'media.tag': 'See & hear us', 'media.title': 'Media',
     'media.recording': 'Live recording \u2014 December 2025',
     'shows.tag': 'On the road', 'shows.title': 'Upcoming Shows',
@@ -34,7 +34,7 @@ const t = {
     'show3.title': 'Beach Club Bonanza', 'show4.title': 'Corporate Summer Bash',
     'show.main-stage': 'Main Stage', 'show.rooftop': 'Rooftop Venue',
     'show.private': 'Private Event', 'show.private.note': 'Location to be announced',
-    'show.soon': 'Soon', 'show.your-show': 'Your show here', 'show.your-show.note': 'Book us for your event',
+    'show.soon': 'Soon', 'show.your-show': 'Your show here', 'show.your-show.note': 'Your crowd deserves better than a DJ.',
     'show.tickets': 'Tickets', 'show.info': 'Info',
     'shows.note': 'Want us at your event?', 'shows.note.link': 'Get in touch!',
     'contact.tag': 'Say hello', 'contact.title': 'Book or Contact Us',
@@ -83,7 +83,7 @@ const t = {
     'about.tag': 'Wie we zijn', 'about.title': 'Goede Vibes, <span class="nowrap">Geweldige Nummers</span>',
     'about.p1': 'Miss Chief and the Bandits is een zeskoppige pop rock coverband met \u00e9\u00e9n simpele missie: jouw zaal, dansvloer en ziel vullen met pure, onversneden fun.',
     'about.p2': 'Van nummers die je meebrult in de auto tot guilty pleasures waarvan je stiekem geniet \u2014 wij spelen het allemaal met een glimlach en een hoop energie. Geen gedoe, all killer no filler \u2014 gewoon geweldige muziek en nog betere sfeer.',
-    'about.p3': 'Perfect voor festivals, bedrijfsfeesten, clubavonden of elk evenement dat een upgrade van een Spotify-playlist verdient.',
+    'about.p3': 'Thuis in Twente, perfect voor festivals, bedrijfsfeesten, clubavonden of elk evenement dat een upgrade van een Spotify-playlist verdient.',
     'about.party': 'Feest',
     'band.tag': 'Maak kennis', 'band.title': 'De Band',
     'band.misses': 'The Miss Chiefs', 'band.bandits': 'The Bandits',
@@ -97,7 +97,7 @@ const t = {
     'bio.ruud': 'Riffs die je haar recht overeind zetten en solo\u2019s waarna je je eigen naam vergeet. Ruud houdt het vuur brandend, zes snaren tegelijk \u2014 maar laat de pyrotechniek je niet misleiden. Als hij overschakelt op zoet, zijdezacht leadgitaar wordt de zaal stil en verschijnen de kippenvel. Dat heeft hem een bijnaam opgeleverd die alles zegt: Carlos.',
     'bio.erikjan': 'De groovemachine. Erik-Jan legt de lage noten met chirurgische precisie en een coolheid die de hele band er goed uit laat zien. En terwijl zijn vingers het fundament bewaken, vertelt zijn gezicht het hele verhaal \u2014 het kenmerkende bassface: die onmiskenbare uitdrukking van diepe concentratie, ingehouden swagger en pure lage-frequentie-voldoening.',
     'bio.pieter': 'Van weelderige synthpads tot donderende pianakkoorden, Pieter vult elke hoek van de zaal met geluid en laat geen oor onberoerd. Een doorgewinterde synthesizer-fanaat, hij kan vrijwel elk geluid nabootsen dat de mens kent — en een paar die waarschijnlijk nog niet bestaan.',
-    'bio.ingo': 'Het kloppend hart van de Bandits. Ingo drijft de motor op volle toeren, houdt iedereen in het gareel en probeert ondertussen zijn teksten te onthouden. Op de een of andere manier valt alles altijd precies op zijn plek.',
+    'bio.ingo': 'Ze zeggen wel eens dat de drummer de dirigent van de band is — alleen staat hij achterin en kijkt niemand naar hem. Ingo trekt zich daar niets van aan. Hij is de fundering waar alles op rust, legt de groove neer en houdt iedereen in het gareel. Hij drijft de motor en zorgt dat iedereen zich lekker voelt. Oh, en hij zingt er ook nog bij. Tegelijk. Ja, echt.',
     'media.tag': 'Zie & hoor ons', 'media.title': 'Media',
     'media.recording': 'Live opname \u2014 december 2025',
     'shows.tag': 'Op pad', 'shows.title': 'Aankomende Shows',
@@ -105,7 +105,7 @@ const t = {
     'show3.title': 'Beach Club Bonanza', 'show4.title': 'Bedrijfsfeest',
     'show.main-stage': 'Hoofdpodium', 'show.rooftop': 'Rooftop Locatie',
     'show.private': 'Besloten Evenement', 'show.private.note': 'Locatie wordt bekendgemaakt',
-    'show.soon': 'Binnenkort', 'show.your-show': 'Jouw show hier', 'show.your-show.note': 'Boek ons voor jouw evenement',
+    'show.soon': 'Binnenkort', 'show.your-show': 'Jouw show hier', 'show.your-show.note': 'Jouw publiek verdient meer dan een DJ.',
     'show.tickets': 'Tickets', 'show.info': 'Info',
     'shows.note': 'Wil je ons op jouw evenement?', 'shows.note.link': 'Neem contact op!',
     'contact.tag': 'Zeg hallo', 'contact.title': 'Boek of Contacteer Ons',
@@ -321,14 +321,27 @@ riderToggle.addEventListener('click', () => {
 // ─── Contact form ───────────────────────────────────────────────────
 document.getElementById('contactForm').addEventListener('submit', (e) => {
   e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
-  btn.textContent = t[currentLang]['form.sent'];
-  btn.style.background = 'linear-gradient(135deg, #00c896, #1a6fd4)';
+  const form = e.target;
+  const btn  = form.querySelector('button[type="submit"]');
   btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = t[currentLang]['form.submit'];
-    btn.style.background = '';
-    btn.disabled = false;
-    e.target.reset();
-  }, 3500);
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(new FormData(form)).toString(),
+  })
+    .then(() => {
+      btn.textContent = t[currentLang]['form.sent'];
+      btn.style.background = 'linear-gradient(135deg, #00c896, #1a6fd4)';
+      setTimeout(() => {
+        btn.textContent = t[currentLang]['form.submit'];
+        btn.style.background = '';
+        btn.disabled = false;
+        form.reset();
+      }, 3500);
+    })
+    .catch(() => {
+      btn.textContent = 'Something went wrong — please email us directly.';
+      btn.disabled = false;
+    });
 });
