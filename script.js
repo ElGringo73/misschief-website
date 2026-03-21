@@ -325,7 +325,7 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
   const btn  = form.querySelector('button[type="submit"]');
   btn.disabled = true;
 
-  fetch('/', {
+  fetch(window.location.pathname, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams(new FormData(form)).toString(),
