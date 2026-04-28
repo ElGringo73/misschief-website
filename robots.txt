@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://miss-chief-band.nl/sitemap.xml
